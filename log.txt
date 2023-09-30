@@ -1,31 +1,8 @@
-1695966478649: New request received
-1695966499997: New request received
-1695966795324: New request received
-1695966915017: New request received
-1695966915582: New request received
-1695967642546: New request received
-1695968453221: New request received
-1695993680010: New request received
-1695994574843: New request received
-1695995888910: New request received
-1695995933399: New request received
-1695995934466: New request received
-1695995943019: New request received
-1695995947627: New request received
-1695995988567: New request received
-1695996060257:/ New request received
-1695996068358:/about New request received
-1695996911286:/ New request received
-1695996912942:/ New request received
-1695997029463:/ New request received
-1695997031206:/favicon.ico New request received
-1695997036928:/about New request received
-1695997051183:/ New request received
-1695997052134:/favicon.ico New request received
-1695997281906:/about New request received
-1695997794999:/ New request received
-1695997796538:/ New request received
-1696001265474:/ New request received
-1696010010492:/ New request received
-1696080057659:/ New request received
-1696080890743:/ New request received
+1696083972755: GET / New request received
+1696083973994: GET / New request received
+
+1696084064066: GET /signup New request received
+1696084074771: GET / New request received
+1696084075611: GET /signup New request received
+1696084124750: GET / New request received
+1696084125745: GET / New request received

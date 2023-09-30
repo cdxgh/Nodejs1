@@ -3,17 +3,22 @@ const fs = require("fs");
 const url = require("url");
 
 const myServer = http.createServer((req, res) => {
-  const log = `${Date.now()}:${req.url} New request received\n`;
+  const log = `${Date.now()}: ${req.method} ${req.url} New request received\n`;
   const myUrl = url.parse(req.url);
-  console.log(myUrl);
+
   fs.appendFile("log.txt", log, (err, data) => {
-    switch (req.url) {
+    switch (myUrl.pathname) {
       case "/":
-        res.end("Home Page");
+       if(req.method === "GET") res.end("HomePage");
         break;
       case "/about":
         res.end("HEY! I am Abdul Quadir");
         break;
+        case "/signup":
+          if(req.method === 'GET') res.end('This is a signup form');
+          else if(req.method==='POST'){
+            res.end("Sucess");
+          }
       default:
         res.end("404 Not Found!");
     }
