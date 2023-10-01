@@ -44,7 +44,7 @@ app.post('/api/users', (req,res)=>{
   const body = req.body;
   users.push({ ...body, id: users.length +1});
   fs.writeFile('./TEST.json', JSON.stringify(users),(err,data)=>{
-    return res.json({status:"Pending"});
+    return res.json({status:"sucess", id: users.length});
   }); 
 });
 
