@@ -6,6 +6,9 @@ app.get('/', (req, res)=>{
 app.get("/about",(req, res)=>{
   return res.send(`Hello! ${req.query.name}`);
 });
+app.get('/profile',(req,res)=>{
+  return res.send(`This is my profile page`);
+});
 app.listen(8000,()=> console.log("Server Started"));
 // const myServer = http.createServer(app);
 
