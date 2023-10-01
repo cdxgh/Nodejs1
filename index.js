@@ -15,11 +15,40 @@ app.get("/users", (req, res) =>{
       res.send(html);
       
 });
-app.get("/api/users/:id",(req,res)=>{
+// app.get("/api/users/:id",(req,res)=>{
+//   const id = Number(req.params.id);
+// const user = users.find((user)=> user.id === id);
+// return res.json(user);
+// });
+app
+.route("/api/users/:id")
+.get((req,res)=>{
   const id = Number(req.params.id);
-const user = users.find((user)=> user.id === id);
-return res.json(user);
+  const user = users.find((user)=> user.id === id);
+  return res.json(user);
+})
+.patch((req, res)=>{
+   // Editing new user
+  return res.json({status:"pending..."});
+})
+.delete((req,res)=>{
+  // delete a users
+  return res.json({status:"pending..."});
 });
+app.post("/api/users", (req,res)=>{
+  // creating new user
+  return res.json({status:"pending..."});
+});
+
+// app.patch("/api/users/id:", (req,res)=>{
+//   // Editing new user
+//   return res.json({status:"pending..."});
+// });
+// app.delete("/api/users/id:", (req,res)=>{
+//   // delete a users
+//   return res.json({status:"pending..."});
+// });
+
 app.get('/', (req, res)=>{
   return res.send('Hello From Homepage !');
 });
