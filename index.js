@@ -1,7 +1,10 @@
 const express = require("express");
 const users = require("./TEST.json");
 const app = express();
+const fs = require("fs");
 const PORT = 8000; 
+
+app.use(express.urlencoded({extended: false}));
 app.get('/api/users',(req,res)=>{
   return res.json(users);
 });
@@ -35,9 +38,14 @@ app
   // delete a users
   return res.json({status:"pending..."});
 });
-app.post("/api/users", (req,res)=>{
+app.post('/api/users', (req,res)=>{
   // creating new user
-  return res.json({status:"pending..."});
+  // return res.json({status:"pending..."});
+  const body = req.body;
+  users.push({ ...body, id: users.length +1});
+  fs.writeFile('./TEST.json', JSON.stringify(users),(err,data)=>{
+    return res.json({status:"Pending"});
+  }); 
 });
 
 // app.patch("/api/users/id:", (req,res)=>{
@@ -52,13 +60,13 @@ app.post("/api/users", (req,res)=>{
 app.get('/', (req, res)=>{
   return res.send('Hello From Homepage !');
 });
-app.get("/about",(req, res)=>{
-  return res.send(`Hello! ${req.query.name}`);
-});
-app.get('/profile',(req,res)=>{
-  return res.send(`This is my profile page`);
-});
-app.listen(PORT,()=> console.log("Server Started"));
+// app.get("/about",(req, res)=>{
+//   return res.send(`Hello! ${req.query.name}`);
+// });
+// app.get('/profile',(req,res)=>{
+//   return res.send(`This is my profile page`);
+// });
+app.listen(PORT,()=> console.log(`Server Started at PORT:${PORT}`));
 // const myServer = http.createServer(app);
 
 // myServer.listen(8000, () => console.log("Server Started"));
