@@ -6,6 +6,8 @@ const PORT = 8000;
 
 app.use(express.urlencoded({extended: false}));
 app.get('/api/users',(req,res)=>{
+  // return res.json(users);
+  res.setHeader("myName", "Arshu")
   return res.json(users);
 });
 
