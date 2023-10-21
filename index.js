@@ -3,13 +3,44 @@ const users = require("./TEST.json");
 const app = express();
 const fs = require("fs");
 const PORT = 8000; 
+const mongoose = require("mongoose");
+//connection
+mongoose
+.connect("mongodb://127.0.0.1:27017/Learning-mongo-1")
+.then(() => console.log("MONGODB CONNECTED"))
+.catch((err) => console.log("Mongo Error", err));
 
+// Schema
+const userSchema = new mongoose.Schema({
+  FirstName:{
+    type:String,
+    require: true,
+  },
+  LastName: {
+    type:String,
+    require:false,
+  },
+  email: {
+    type: String,
+    require: true,
+    unique: true,
+  },
+  jobTitle:{
+    type: String,
+
+  },
+  gender:{
+    type:String,
+  },
+});
+const User = mongoose.model("user", userSchema);
 app.use(express.urlencoded({extended: false}));
 app.get('/api/users',(req,res)=>{
   // return res.json(users);
   res.setHeader("myName", "Arshu")
   return res.json(users);
 });
+
 
 app.get("/users", (req, res) =>{
       const html = `
